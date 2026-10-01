@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: var(--font-cinzel), Georgia, serif;
+    --font-sans: var(--font-inter), system-ui, sans-serif;
+    --font-script: var(--font-script), cursive;
+
+    /* Design Tokens from Page 1 of PDF */
+    --midnight-navy: #070D1D;
+    --midnight-navy-surface: #0B132B;
+    --antique-gold: #C5A059;
+    --antique-gold-hover: #D4AF37;
+    --warm-ivory: #FAF6EE;
+    --warm-ivory-surface: #F5EFEB;
+    --soft-silver: #C5CBD3;
+  }
+
+  body {
+    background-color: var(--midnight-navy);
+    color: var(--warm-ivory);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif-brand {
+    font-family: var(--font-serif);
+    letter-spacing: 0.04em;
+  }
+
+  .font-script-signature {
+    font-family: var(--font-script);
+  }
+}
+
+/* Subtle vitrine line divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.4), transparent);
+}
+
+/* Page 3 & 4 Warm Ivory Surface styling */
+.ivory-panel {
+  background-color: #FAF6EE;
+  color: #070D1D;
+}
+
+/* Button styles */
+.btn-gold {
+  background-color: #C5A059;
+  color: #070D1D;
+  transition: all 0.2s ease;
+}
+.btn-gold:hover {
+  background-color: #D4AF37;
+}
+
+.btn-outline-gold {
+  border: 1px solid rgba(197, 160, 89, 0.6);
+  color: #FAF6EE;
+  transition: all 0.2s ease;
+}
+.btn-outline-gold:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  background-color: rgba(197, 160, 89, 0.08);
+}
