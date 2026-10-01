@@ -9,7 +9,7 @@ import BottomPillars from "@/components/BottomPillars";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HomePage() {
-  const [currentVariant, setCurrentVariant] = useState<"oceanic" | "lavande">("oceanic");
+  const [currentVariant, setCurrentVariant] = useState<"oceanic" | "lavender">("oceanic");
   const { lang, t, isRtl } = useLanguage();
   const isOceanic = currentVariant === "oceanic";
 
@@ -47,7 +47,7 @@ export default function HomePage() {
                 <span>
                   {isOceanic
                     ? t.home.eyebrowOceanic[lang]
-                    : t.home.eyebrowLavande[lang]}
+                    : t.home.eyebrowLavender[lang]}
                 </span>
                 <span className="w-12 h-px bg-[#C5A059]/60" />
               </div>
@@ -114,9 +114,9 @@ export default function HomePage() {
                     src={
                       isOceanic
                         ? "/images/oceanic-front.jpg"
-                        : "/images/lavande-front.jpg"
+                        : "/images/lavender-front.jpg"
                     }
-                    alt={isOceanic ? "Apolyon Oceanic 5L" : "Apolyon Lavande 5L"}
+                    alt={isOceanic ? "Apolyon Oceanic 5L" : "Apolyon Lavender 5L"}
                     fill
                     priority
                     className="object-contain"

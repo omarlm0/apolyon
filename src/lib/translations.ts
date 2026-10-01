@@ -17,8 +17,8 @@ export const translations = {
       FR: "Océanique",
       AR: "أوشيانيك",
     },
-    lavande: {
-      EN: "Lavande",
+    lavender: {
+      EN: "Lavender",
       FR: "Lavande",
       AR: "لافاند",
     },
@@ -39,8 +39,8 @@ export const translations = {
       FR: "LA COLLECTION OCÉANIQUE",
       AR: "مجموعة أوشيانيك",
     },
-    eyebrowLavande: {
-      EN: "THE LAVANDE COLLECTION",
+    eyebrowLavender: {
+      EN: "THE LAVENDER COLLECTION",
       FR: "LA COLLECTION LAVANDE",
       AR: "مجموعة لافاند",
     },
@@ -133,7 +133,7 @@ export const translations = {
       FR: "Laisse un parfum océanique frais après chaque lavage.",
       AR: "يترك عبير المحيط المنعش بعد كل غسلة.",
     },
-    freshnessDescLavande: {
+    freshnessDescLavender: {
       EN: "Leaves a calming lavender scent after every wash.",
       FR: "Laisse une douce fragrance de lavande après chaque lavage.",
       AR: "يترك عبير الخزامى المهدئ بعد كل غسلة.",
@@ -148,8 +148,8 @@ export const translations = {
       FR: "LA SIGNATURE OCÉANIQUE",
       AR: "البصمة العطرية أوشيانيك",
     },
-    scentSignatureLavande: {
-      EN: "THE LAVANDE SIGNATURE",
+    scentSignatureLavender: {
+      EN: "THE LAVENDER SIGNATURE",
       FR: "LA SIGNATURE LAVANDE",
       AR: "البصمة العطرية لافاند",
     },
@@ -167,7 +167,7 @@ export const translations = {
         symbol: "🌸",
       },
     ],
-    scentsLavande: [
+    scentsLavender: [
       {
         name: { EN: "ATLAS LAVENDER", FR: "LAVANDE DE L'ATLAS", AR: "خزامى الأطلس" },
         symbol: "🌿",

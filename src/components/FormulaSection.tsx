@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Sparkles, Wind, Feather, Droplet, ArrowRight } from "lucide-react";
 
 interface FormulaSectionProps {
-  currentVariant: "oceanic" | "lavande";
+  currentVariant: "oceanic" | "lavender";
   onOpenDirections: () => void;
 }
 
@@ -41,9 +41,9 @@ export default function FormulaSection({
               src={
                 isOceanic
                   ? "/images/oceanic-front.jpg"
-                  : "/images/lavande-front.jpg"
+                  : "/images/lavender-front.jpg"
               }
-              alt={isOceanic ? "Apolyon Oceanic Formula" : "Apolyon Lavande Formula"}
+              alt={isOceanic ? "Apolyon Oceanic Formula" : "Apolyon Lavender Formula"}
               fill
               className="object-contain"
               sizes="(max-width: 768px) 260px, 320px"
@@ -116,7 +116,7 @@ export default function FormulaSection({
           <div className="pt-2">
             <div className="text-center mb-4">
               <span className="text-[10px] font-mono tracking-[0.28em] uppercase text-[#C5A059]">
-                {isOceanic ? "─── THE OCEANIC SIGNATURE ───" : "─── THE LAVANDE SIGNATURE ───"}
+                {isOceanic ? "─── THE OCEANIC SIGNATURE ───" : "─── THE LAVENDER SIGNATURE ───"}
               </span>
             </div>
 

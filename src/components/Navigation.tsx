@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 interface NavigationProps {
-  currentVariant: "oceanic" | "lavande";
-  onSelectVariant: (variant: "oceanic" | "lavande") => void;
+  currentVariant: "oceanic" | "lavender";
+  onSelectVariant: (variant: "oceanic" | "lavender") => void;
 }
 
 export default function Navigation({
@@ -64,11 +64,11 @@ export default function Navigation({
           </button>
           <button
             onClick={() => {
-              onSelectVariant("lavande");
+              onSelectVariant("lavender");
               scrollTo("hero");
             }}
             className={`transition-colors py-1 flex items-center gap-1.5 ${
-              currentVariant === "lavande" ? "text-[#D4AF37] font-semibold" : "hover:text-[#FAF6EE]"
+              currentVariant === "lavender" ? "text-[#D4AF37] font-semibold" : "hover:text-[#FAF6EE]"
             }`}
           >
             Lavande
@@ -165,12 +165,12 @@ export default function Navigation({
           </button>
           <button
             onClick={() => {
-              onSelectVariant("lavande");
+              onSelectVariant("lavender");
               scrollTo("hero");
             }}
             className="block w-full text-left py-2 text-[#C5CBD3] hover:text-[#FAF6EE]"
           >
-            Lavande Collection
+            Lavender Collection
           </button>
           <button
             onClick={() => scrollTo("reserve")}

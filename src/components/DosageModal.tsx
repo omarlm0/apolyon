@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 interface DosageModalProps {
   isOpen: boolean;
   onClose: () => void;
-  variant: "oceanic" | "lavande";
+  variant: "oceanic" | "lavender";
 }
 
 export default function DosageModal({

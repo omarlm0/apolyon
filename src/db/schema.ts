@@ -11,7 +11,7 @@ export const orders = pgTable("orders", {
 
   // Order Details
   orderType: varchar("order_type", { length: 20 }).notNull(), // 'personal' or 'wholesale'
-  variant: varchar("variant", { length: 20 }).notNull(),       // 'oceanic' or 'lavande'
+  variant: varchar("variant", { length: 20 }).notNull(),       // 'oceanic' or 'lavender'
   quantity: integer("quantity").notNull(),
   
   // System Fields

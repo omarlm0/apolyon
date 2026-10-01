@@ -15,8 +15,8 @@ import {
 } from "lucide-react";
 
 interface PreOrderSectionProps {
-  currentVariant: "oceanic" | "lavande";
-  onSelectVariant: (variant: "oceanic" | "lavande") => void;
+  currentVariant: "oceanic" | "lavender";
+  onSelectVariant: (variant: "oceanic" | "lavender") => void;
 }
 
 export default function PreOrderSection({
@@ -79,7 +79,7 @@ export default function PreOrderSection({
 
   const getWhatsAppLink = () => {
     const businessPhone = "212600000000";
-    const variantName = currentVariant === "oceanic" ? "Oceanic (Navy)" : "Lavande (Purple)";
+    const variantName = currentVariant === "oceanic" ? "Oceanic (Navy)" : "Lavender (Purple)";
     const msg = encodeURIComponent(
       `Bonjour APOLYON,\n\nJe viens de soumettre ma demande de réservation :\n• Réf: #${orderRef}\n• Produit: Apolyon ${variantName} 5L\n• Type: ${orderType === "wholesale" ? "Wholesale (Professionnel)" : "Commande Privée"}\n• Quantité: ${quantity} unités (${quantity * 5} Litres)\n• Nom/Société: ${fullName}\n• Ville: ${city}\n\nMerci de me recontacter pour finaliser la disponibilité et le tarif.`
     );
@@ -118,7 +118,7 @@ export default function PreOrderSection({
                 src={
                   currentVariant === "oceanic"
                     ? "/images/oceanic-front.jpg"
-                    : "/images/lavande-front.jpg"
+                    : "/images/lavender-front.jpg"
                 }
                 alt="Apolyon 5L Reserve Preview"
                 fill
@@ -130,7 +130,7 @@ export default function PreOrderSection({
             {/* Info badge below bottle matching Page 4 */}
             <div className="mt-4 p-3 bg-[#0B132B] border border-[#C5A059]/30 text-center w-full max-w-xs">
               <p className="text-xs font-serif-brand font-semibold text-[#FAF6EE] uppercase tracking-widest">
-                {currentVariant === "oceanic" ? "OCEANIC • 5 L" : "LAVANDE • 5 L"}
+                {currentVariant === "oceanic" ? "OCEANIC • 5 L" : "LAVENDER • 5 L"}
               </p>
               <p className="text-[10px] text-[#C5CBD3] font-mono mt-0.5">
                 For homes, retailers and professional buyers.

@@ -9,12 +9,12 @@ import DosageModal from "@/components/DosageModal";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FormulaPage() {
-  const [currentVariant, setCurrentVariant] = useState<"oceanic" | "lavande">("oceanic");
+  const [currentVariant, setCurrentVariant] = useState<"oceanic" | "lavender">("oceanic");
   const [dosageOpen, setDosageOpen] = useState(false);
   const { lang, t, isRtl } = useLanguage();
   const isOceanic = currentVariant === "oceanic";
 
-  const scents = isOceanic ? t.formula.scentsOceanic : t.formula.scentsLavande;
+  const scents = isOceanic ? t.formula.scentsOceanic : t.formula.scentsLavender;
   const gradientStyles = isOceanic
     ? [
         "from-blue-400 via-sky-500 to-indigo-700",
@@ -57,9 +57,9 @@ export default function FormulaPage() {
                   src={
                     isOceanic
                       ? "/images/oceanic-front.jpg"
-                      : "/images/lavande-front.jpg"
+                      : "/images/lavender-front.jpg"
                   }
-                  alt={isOceanic ? "Apolyon Oceanic Formula" : "Apolyon Lavande Formula"}
+                  alt={isOceanic ? "Apolyon Oceanic Formula" : "Apolyon Lavender Formula"}
                   fill
                   priority
                   className="object-contain"
@@ -117,7 +117,7 @@ export default function FormulaPage() {
                   <p className="text-[10px] text-[#5A6578] leading-normal">
                     {isOceanic
                       ? t.formula.freshnessDescOceanic[lang]
-                      : t.formula.freshnessDescLavande[lang]}
+                      : t.formula.freshnessDescLavender[lang]}
                   </p>
                 </div>
 
@@ -137,7 +137,7 @@ export default function FormulaPage() {
               <div className="pt-2">
                 <div className="text-center mb-3">
                   <span className="text-[9px] font-mono tracking-[0.28em] uppercase text-[#C5A059]">
-                    ─── {isOceanic ? t.formula.scentSignatureOceanic[lang] : t.formula.scentSignatureLavande[lang]} ───
+                    ─── {isOceanic ? t.formula.scentSignatureOceanic[lang] : t.formula.scentSignatureLavender[lang]} ───
                   </span>
                 </div>
 

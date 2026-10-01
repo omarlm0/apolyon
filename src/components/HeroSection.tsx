@@ -5,8 +5,8 @@ import Image from "next/image";
 import { ArrowRight, Sparkles, Wind, Feather, Droplets } from "lucide-react";
 
 interface HeroSectionProps {
-  currentVariant: "oceanic" | "lavande";
-  onSelectVariant: (variant: "oceanic" | "lavande") => void;
+  currentVariant: "oceanic" | "lavender";
+  onSelectVariant: (variant: "oceanic" | "lavender") => void;
   onOpenDirections?: () => void;
 }
 
@@ -46,7 +46,7 @@ export default function HeroSection({
           {/* Eyebrow: Exact matching PDF Page 2 */}
           <div className="flex items-center space-x-3 text-[#C5A059] text-[11px] font-mono tracking-[0.3em] uppercase">
             <span className="w-10 h-px bg-[#C5A059]/60" />
-            <span>{isOceanic ? "THE OCEANIC COLLECTION" : "THE LAVANDE COLLECTION"}</span>
+            <span>{isOceanic ? "THE OCEANIC COLLECTION" : "THE LAVENDER COLLECTION"}</span>
             <span className="w-10 h-px bg-[#C5A059]/60" />
           </div>
 
@@ -80,14 +80,14 @@ export default function HeroSection({
               </button>
               <button
                 type="button"
-                onClick={() => onSelectVariant("lavande")}
+                onClick={() => onSelectVariant("lavender")}
                 className={`px-3 py-1.5 text-[10px] uppercase font-mono tracking-widest transition-all ${
                   !isOceanic
                     ? "bg-[#C5A059] text-[#070D1D] font-bold"
                     : "text-[#C5CBD3] hover:text-[#FAF6EE]"
                 }`}
               >
-                Lavande (Purple)
+                Lavender (Purple)
               </button>
             </div>
           </div>
@@ -135,9 +135,9 @@ export default function HeroSection({
                 src={
                   isOceanic
                     ? "/images/oceanic-front.jpg"
-                    : "/images/lavande-front.jpg"
+                    : "/images/lavender-front.jpg"
                 }
-                alt={isOceanic ? "Apolyon Oceanic 5L Bottle" : "Apolyon Lavande 5L Bottle"}
+                alt={isOceanic ? "Apolyon Oceanic 5L Bottle" : "Apolyon Lavender 5L Bottle"}
                 fill
                 priority
                 className="object-contain"

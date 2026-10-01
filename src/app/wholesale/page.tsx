@@ -18,7 +18,7 @@ import FooterBar from "@/components/FooterBar";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function WholesalePage() {
-  const [currentVariant, setCurrentVariant] = useState<"oceanic" | "lavande">("oceanic");
+  const [currentVariant, setCurrentVariant] = useState<"oceanic" | "lavender">("oceanic");
   const [orderType, setOrderType] = useState<"personal" | "wholesale">("wholesale");
   const [quantity, setQuantity] = useState<number>(24);
   const [isCustom, setIsCustom] = useState<boolean>(false);
@@ -76,7 +76,7 @@ export default function WholesalePage() {
 
   const getWhatsAppLink = () => {
     const businessPhone = "212600000000";
-    const variantName = currentVariant === "oceanic" ? "Oceanic (Navy)" : "Lavande (Purple)";
+    const variantName = currentVariant === "oceanic" ? "Oceanic (Navy)" : "Lavender (Purple)";
     const greeting =
       lang === "AR"
         ? `السلام عليكم أبوليو،\n\nقمت بإرسال طلب حجز عبر الموقع:\n• المرجع: #${orderRef}\n• المنتج: أبوليو ${variantName} (5 لتر)\n• الكمية: ${quantity} وحدة (${quantity * 5} لتر)\n• الاسم: ${fullName}\n• المدينة: ${city}\n\nيرجى تأكيد التوفر والسعر.`
@@ -125,7 +125,7 @@ export default function WholesalePage() {
                   src={
                     currentVariant === "oceanic"
                       ? "/images/oceanic-front.jpg"
-                      : "/images/lavande-front.jpg"
+                      : "/images/lavender-front.jpg"
                   }
                   alt="Apolyon 5L Reserve Preview"
                   fill
@@ -138,7 +138,7 @@ export default function WholesalePage() {
               {/* Info badge below bottle matching Page 4 mockup */}
               <div className="mt-3 p-2.5 bg-[#0B132B] border border-[#C5A059]/30 text-center w-full max-w-xs">
                 <p className="text-xs font-serif-brand font-semibold text-[#FAF6EE] uppercase tracking-widest">
-                  {currentVariant === "oceanic" ? "OCEANIC • 5 L" : "LAVANDE • 5 L"}
+                  {currentVariant === "oceanic" ? "OCEANIC • 5 L" : "LAVENDER • 5 L"}
                 </p>
                 <p className="text-[10px] text-[#C5CBD3] font-mono mt-0.5">
                   {t.wholesale.badgeText[lang]}
@@ -431,7 +431,7 @@ export default function WholesalePage() {
 
               <p className="text-xs text-[#5A6578] mt-2 leading-relaxed">
                 {t.wholesale.modalDesc[lang]} <strong>{quantity} {t.wholesale.units[lang]} ({quantity * 5} {t.wholesale.modalLiters[lang]})</strong>{" "}
-                {currentVariant === "oceanic" ? "Apolyon Oceanic" : "Apolyon Lavande"} — <strong>{city}</strong>.
+                {currentVariant === "oceanic" ? "Apolyon Oceanic" : "Apolyon Lavender"} — <strong>{city}</strong>.
               </p>
 
               {/* Direct WhatsApp Client Button */}

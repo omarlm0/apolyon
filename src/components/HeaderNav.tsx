@@ -8,8 +8,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { Language } from "@/lib/translations";
 
 interface HeaderNavProps {
-  currentVariant?: "oceanic" | "lavande";
-  onSelectVariant?: (variant: "oceanic" | "lavande") => void;
+  currentVariant?: "oceanic" | "lavender";
+  onSelectVariant?: (variant: "oceanic" | "lavender") => void;
 }
 
 export default function HeaderNav({
@@ -71,11 +71,11 @@ export default function HeaderNav({
           {onSelectVariant ? (
             <button
               type="button"
-              onClick={() => onSelectVariant(currentVariant === "oceanic" ? "lavande" : "oceanic")}
+              onClick={() => onSelectVariant(currentVariant === "oceanic" ? "lavender" : "oceanic")}
               className="hover:text-[#FAF6EE] transition-colors py-1 flex items-center gap-1.5 cursor-pointer"
             >
               <span>
-                {currentVariant === "oceanic" ? t.nav.oceanic[lang] : t.nav.lavande[lang]}
+                {currentVariant === "oceanic" ? t.nav.oceanic[lang] : t.nav.lavender[lang]}
               </span>
               <span className="text-[9px] font-mono px-1 py-0.2 rounded border border-[#C5A059]/40 text-[#C5A059]">
                 {currentVariant === "oceanic" ? "Navy" : "Purple"}
