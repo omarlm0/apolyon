@@ -32,10 +32,11 @@ export async function submitOrder(data: {
       status: "pending",
     });
 
-    // 3. Send Receipt to Client
+    // 3. Send Receipt to Client (TEMPORARILY DISABLED)
+    /* 
     await resend.emails.send({
-      from: "Apolyon <onboarding@resend.dev>", // While testing, Resend requires this exact sender
-      to: data.email, // NOTE: While testing, this MUST be your verified Resend email address
+      from: "Apolyon <onboarding@resend.dev>",
+      to: data.email,
       subject: `Your Apolyon Order Confirmation (${orderRef})`,
       html: `
         <h2>Thank you for your order, ${data.fullName}!</h2>
@@ -52,12 +53,13 @@ export async function submitOrder(data: {
         <p>Best regards,<br/>The Apolyon Team</p>
       `,
     });
+    */
 
     // 4. Send Internal Alert to Workers
     await resend.emails.send({
       from: "Apolyon System <onboarding@resend.dev>", 
-      to: "omarlmden@gmail.com", // Change this to your actual email for notifications
-      subject: `🚨 New ${data.orderType.toUpperCase()} Order - ${data.variant}`,
+      to: "omarlmden@gmail.com", // This works on free tier because it's your verified email
+      subject: `New ${data.orderType.toUpperCase()} Order - ${data.variant}`,
       html: `
         <h2>New Order Received!</h2>
         <p><strong>Name:</strong> ${data.fullName}</p>

@@ -1,4 +1,4 @@
-import { pgTable, serial, text, integer, timestamp, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, timestamp, varchar, numeric } from "drizzle-orm/pg-core";
 
 export const orders = pgTable("orders", {
   id: serial("id").primaryKey(),
@@ -7,12 +7,14 @@ export const orders = pgTable("orders", {
   fullName: text("full_name").notNull(),
   email: varchar("email", { length: 255 }).notNull(),
   phone: varchar("phone", { length: 50 }).notNull(),
+  address: text("address").default('').notNull(),
   city: text("city").notNull(),
 
   // Order Details
   orderType: varchar("order_type", { length: 20 }).notNull(), // 'personal' or 'wholesale'
   variant: varchar("variant", { length: 20 }).notNull(),       // 'oceanic' or 'lavender'
   quantity: integer("quantity").notNull(),
+  totalPrice: numeric("total_price", { precision: 10, scale: 2 }).default('0').notNull(),
   
   // System Fields
   orderRef: varchar("order_ref", { length: 50 }).unique(),    
