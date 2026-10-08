@@ -75,7 +75,7 @@ export default function WholesalePage() {
   };
 
   const getWhatsAppLink = () => {
-    const businessPhone = "212600000000";
+    const businessPhone = "212657567876";
     const variantName = currentVariant === "oceanic" ? "Oceanic (Navy)" : "Lavender (Purple)";
     const greeting =
       lang === "AR"
