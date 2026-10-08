@@ -78,7 +78,8 @@ export default function PreOrderSection({
   };
 
   const getWhatsAppLink = () => {
-    const businessPhone = "212600000000";
+    // The number your customers will message. Set this in .env.local
+    const businessPhone = process.env.NEXT_PUBLIC_WHATSAPP_BUSINESS_NUMBER || "212600000000";
     const variantName = currentVariant === "oceanic" ? "Oceanic (Navy)" : "Lavender (Purple)";
     const msg = encodeURIComponent(
       `Bonjour APOLYON,\n\nJe viens de soumettre ma demande de réservation :\n• Réf: #${orderRef}\n• Produit: Apolyon ${variantName} 5L\n• Type: ${orderType === "wholesale" ? "Wholesale (Professionnel)" : "Commande Privée"}\n• Quantité: ${quantity} unités (${quantity * 5} Litres)\n• Nom/Société: ${fullName}\n• Ville: ${city}\n\nMerci de me recontacter pour finaliser la disponibilité et le tarif.`

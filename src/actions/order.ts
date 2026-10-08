@@ -2,9 +2,6 @@
 
 import { db } from "@/db";
 import { orders } from "@/db/schema";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function submitOrder(data: {
   fullName: string;
@@ -32,44 +29,34 @@ export async function submitOrder(data: {
       status: "pending",
     });
 
-    // 3. Send Receipt to Client (TEMPORARILY DISABLED)
-    /* 
-    await resend.emails.send({
-      from: "Apolyon <onboarding@resend.dev>",
-      to: data.email,
-      subject: `Your Apolyon Order Confirmation (${orderRef})`,
-      html: `
-        <h2>Thank you for your order, ${data.fullName}!</h2>
-        <p>We have successfully received your ${data.orderType} request.</p>
-        <p><strong>Order Details:</strong></p>
-        <ul>
-          <li>Reference: ${orderRef}</li>
-          <li>Product: ${data.variant.toUpperCase()}</li>
-          <li>Quantity: ${data.quantity}</li>
-          <li>Shipping City: ${data.city}</li>
-        </ul>
-        <p>Our team will contact you shortly on ${data.phone} to arrange delivery and payment.</p>
-        <br/>
-        <p>Best regards,<br/>The Apolyon Team</p>
-      `,
-    });
-    */
+    // 3. Send Order Confirmation to the Customer via Meta WhatsApp Cloud API
+    const customerMessage = `✅ *Order Confirmed!*\n\nHi ${data.fullName}, thank you for your order!\n\n📦 *Order Details:*\n• Variant: ${data.variant}\n• Quantity: ${data.quantity}\n• City: ${data.city}\n• Order Ref: *${orderRef}*\n\nA member of our team will reach out to you shortly on this number to confirm the details. 🙌`;
 
-    // 4. Send Internal Alert to Workers
-    await resend.emails.send({
-      from: "Apolyon System <onboarding@resend.dev>", 
-      to: "omarlmden@gmail.com", // This works on free tier because it's your verified email
-      subject: `New ${data.orderType.toUpperCase()} Order - ${data.variant}`,
-      html: `
-        <h2>New Order Received!</h2>
-        <p><strong>Name:</strong> ${data.fullName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>City:</strong> ${data.city}</p>
-        <p><strong>Variant:</strong> ${data.variant}</p>
-        <p><strong>Quantity:</strong> ${data.quantity}</p>
-      `,
+    // Format phone number: remove spaces, dashes, and ensure no leading +
+    const formattedPhone = data.phone.replace(/[\s\-\(\)]/g, '').replace(/^\+/, '');
+
+    // Note: Using Meta's Official WhatsApp Cloud API
+    const whatsappResponse = await fetch(`https://graph.facebook.com/v18.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        messaging_product: "whatsapp",
+        recipient_type: "individual",
+        to: formattedPhone, // Customer's phone number from the order form
+        type: "text",
+        text: {
+          preview_url: false,
+          body: customerMessage,
+        },
+      }),
     });
+
+    if (!whatsappResponse.ok) {
+      console.error("Failed to send WhatsApp message via Meta Cloud API", await whatsappResponse.text());
+    }
 
     return { success: true, orderRef };
   } catch (error) {
