@@ -57,24 +57,29 @@ export default function PreOrderSection({
     e.preventDefault();
     setSubmitting(true);
     
-    const result = await submitOrder({
-      fullName,
-      email,
-      phone,
-      city,
-      orderType,
-      variant: currentVariant,
-      quantity,
-    });
+    try {
+      const result = await submitOrder({
+        fullName,
+        email,
+        phone,
+        city,
+        orderType,
+        variant: currentVariant,
+        quantity,
+      });
 
-    if (result.success && result.orderRef) {
-      setOrderRef(result.orderRef);
-      setSubmitted(true);
-    } else {
-      alert(result.error || "Something went wrong.");
+      if (result.success && result.orderRef) {
+        setOrderRef(result.orderRef);
+        setSubmitted(true);
+      } else {
+        alert(result.error || "Something went wrong.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Failed to connect to the server. Please check your database variables in Netlify.");
+    } finally {
+      setSubmitting(false);
     }
-    
-    setSubmitting(false);
   };
 
   const getWhatsAppLink = () => {
