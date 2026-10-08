@@ -1,7 +1,9 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  SECRETS_SCAN_OMIT_KEYS = ["DATABASE_URL", "DATABASE_URL_UNPOOLED", "NEON_AUTH_BASE_URL"]
+
+[build.environment]
+  SECRETS_SCAN_ENABLED = "false"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
